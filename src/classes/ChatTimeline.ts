@@ -81,10 +81,11 @@ export class ChatTimeline {
             }else{
                 timelineItemWordElem.setAttribute('data-count', (parseInt(timelineItemWordElem.getAttribute('data-count')) + 1).toString());
             }
-
-            timelineItemRowElem.setAttribute('data-count', (parseInt(timelineItemRowCount) + 1).toString());
+            
         });
-       
+        
+        timelineItemRowElem.setAttribute('data-count', (parseInt(timelineItemRowElem.getAttribute('data-count')) + timelineItemWords.length).toString());
+        
 
         // Go through the words, again after the message, ensuring all the widths are correct
         timelineItemWords.forEach(word => {
@@ -116,12 +117,18 @@ export class ChatTimeline {
                 }
             });
 
+
             timelineItemWordElems.forEach(timelineItemWordElem => {
                 timelineItemWordElem.style.width = (parseInt(timelineItemWordElem.getAttribute('data-count')) / parseInt(timelineItemRowElem.getAttribute('data-count')) * 100) + '%';
                 timelineItemWordElem.style.order = -timelineItemWordElem.getAttribute('data-count');
             });
 
+            const updatedTotalCount = parseInt(timelineItemRowElem.getAttribute('data-count'));
+            if(updatedTotalCount == 0){
+                timelineItemRowElem.remove();
+            }
         });
+
     }
 
     adjustTimelineItemScale(){
