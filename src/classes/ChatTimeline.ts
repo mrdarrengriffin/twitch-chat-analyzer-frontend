@@ -46,7 +46,6 @@ export class ChatTimeline {
             if(!this.emoteOnly){
                 this.trimTimelineItems();
             }
-            this.adjustTimelineItemScale();
             timelineItemRowElem = document.createElement("div");
             timelineItemRowElem.classList.add("timeline__row");
             timelineItemRowElem.setAttribute('data-delta', item.getLineTimeDelta().toString());
@@ -99,6 +98,7 @@ export class ChatTimeline {
             });
         });
 
+        this.adjustTimelineItemScale();
        
 
     }
