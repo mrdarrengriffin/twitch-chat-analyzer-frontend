@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     chat.onChat(function (chatMessage: ChatMessage) {
         const chatTimelineItem = new ChatTimelineItem(timeline, chatMessage);
         timeline.addItem(chatTimelineItem);
-        timeline.render();
     });
 
 });

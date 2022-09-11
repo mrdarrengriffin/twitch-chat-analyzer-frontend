@@ -1,25 +1,26 @@
-import { Timestamp } from "../interfaces/Timestamp";
 import { IChatMessage } from "../interfaces/ChatMessage";
 import { Emotes } from "./Emotes";
 
 export class ChatMessage {
-
     messageInstance: IChatMessage;
 
-    constructor(messageInstance: IChatMessage){
+    constructor(messageInstance: IChatMessage) {
         this.messageInstance = messageInstance;
     }
 
-
-    getUserName() : string {
+    getUserName(): string {
         return this.messageInstance.tags["display-name"];
     }
+    
     getMessage(): string {
-        return this.messageInstance.message.replaceAll('"','').replaceAll('\'','').trim();
+        return this.messageInstance.message
+            .replaceAll('"', "")
+            .replaceAll("'", "")
+            .trim();
     }
 
     getMessageWords(): string[] {
-        return this.getMessage().split(' ');
+        return this.getMessage().split(" ");
     }
 
     getTimestamp(): number {

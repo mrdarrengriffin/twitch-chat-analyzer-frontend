@@ -33,7 +33,6 @@ export class TwitchChat {
     }
 
     onChat(callbackFn?: Function) {
-        const _self = this;
         // On chat message...
         this.socket.on("chat", function (chat: IChatMessage) {
             const chatMessage = new ChatMessage(chat);
