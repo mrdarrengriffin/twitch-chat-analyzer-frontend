@@ -1,4 +1,4 @@
-export abstract class ChatAnalyzer {
+export abstract class ChatAnalyzerBase {
     constructor(){
         
     }

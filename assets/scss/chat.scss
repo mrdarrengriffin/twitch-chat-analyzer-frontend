@@ -3,6 +3,7 @@
     flex-direction: column;
     .bar {
         display: flex;
+        transition: width 0.5s;
         &__item {
             white-space: nowrap;
             transition: width 0.5s;
@@ -15,8 +16,9 @@
             }
 
             &[data-word-count="1"],
-            &[data-word-count="2"] {
-                opacity: 0.1;
+            &[data-word-count="2"],
+            &[data-word-count="3"] {
+                opacity: 0.25;
             }
         }
     }

@@ -1,9 +1,10 @@
 import { Timestamp } from "../interfaces/Timestamp";
 import { IChatMessage } from "../interfaces/ChatMessage";
+import { Emotes } from "./Emotes";
 
 export class ChatMessage {
 
-    private messageInstance: IChatMessage;
+    messageInstance: IChatMessage;
 
     constructor(messageInstance: IChatMessage){
         this.messageInstance = messageInstance;
@@ -18,17 +19,11 @@ export class ChatMessage {
     }
 
     getMessageWords(): string[] {
-        return [this.getMessage().split(' ')[0]];
+        return this.getMessage().split(' ');
     }
 
-    getTimestamp(): Timestamp {
+    getTimestamp(): number {
         const epoch = parseInt(this.messageInstance.tags["tmi-sent-ts"]);
-
-        const timestamp: Timestamp = {
-            epoch: epoch,
-            epochMinute: Math.round((epoch/1000/60)*6)
-        };
-
-        return timestamp;
+        return epoch;
     }
 }
