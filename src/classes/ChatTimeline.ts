@@ -96,6 +96,13 @@ export class ChatTimeline {
                     ).toString()
                 );
             }
+
+            if(parseInt(timelineItemWordElem.getAttribute("data-count")) < this.minimumWordCount){
+                timelineItemWordElem.style.opacity = '0.25';
+            }else{
+                timelineItemWordElem.style.opacity = '1';
+            }
+
         });
 
         timelineItemRowElem.setAttribute(
