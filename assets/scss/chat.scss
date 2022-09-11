@@ -1,0 +1,23 @@
+.bars {
+    display: flex;
+    flex-direction: column;
+    .bar {
+        display: flex;
+        &__item {
+            white-space: nowrap;
+            transition: width 0.5s;
+            overflow: hidden;
+            height: 1rem;
+
+            &:after {
+                content: "(" attr(data-word-count) ")";
+                margin-left: 0.25rem;
+            }
+
+            &[data-word-count="1"],
+            &[data-word-count="2"] {
+                opacity: 0.1;
+            }
+        }
+    }
+}
