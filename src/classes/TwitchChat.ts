@@ -20,7 +20,7 @@ export class TwitchChat {
     
     private connect() {
         // Connect to the server
-        this.socket = io("https://localhost:3000");
+        this.socket = io("https://api.justchatting.io:2083");
 
         // Store copy if "this" for use in callbacks
         const _self = this;
