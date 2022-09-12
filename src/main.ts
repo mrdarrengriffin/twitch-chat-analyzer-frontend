@@ -4,7 +4,8 @@ import { ChatTimelineItem } from "./classes/ChatTimelineItem";
 import { ChatMessage } from "./classes/ChatMessage";
 import { TwitchChat } from "./classes/TwitchChat";
 
-// Helpers
+
+
 import { ColorHelper } from "./classes/ColorHelper";
 
 const urlSearchParams = new URLSearchParams(window.location.search);

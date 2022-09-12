@@ -9,7 +9,10 @@ dotenv.config();
 
 
 const app = express();
-const httpServer = createServer(app);
+const httpServer = createServer({
+  key: fs.readFileSync("./server.key"),
+  cert: fs.readFileSync("./server.cert")
+},app);
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
